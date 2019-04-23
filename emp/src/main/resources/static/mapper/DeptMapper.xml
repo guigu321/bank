@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.guigu.jst.dao.AccountMapper" >
-  <resultMap id="BaseResultMap" type="com.guigu.jst.pojo.Account" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="cardno" property="cardno" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="balance" property="balance" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="VARCHAR" />
+<mapper namespace="com.guigu.dao.DeptMapper" >
+  <resultMap id="BaseResultMap" type="com.guigu.pojo.Dept" >
+    <id column="deptId" property="deptid" jdbcType="INTEGER" />
+    <result column="deptName" property="deptname" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -37,10 +34,6 @@
       </foreach>
     </where>
   </sql>
-  
-  	<select id="Aid"  parameterType="com.guigu.jst.pojo.AccountExample">
-  			select * form account where id=#{id}
-  	</select>
   <sql id="Update_By_Example_Where_Clause" >
     <where >
       <foreach collection="example.oredCriteria" item="criteria" separator="or" >
@@ -70,18 +63,16 @@
       </foreach>
     </where>
   </sql>
- 
-  
   <sql id="Base_Column_List" >
-    id, cardno, password, balance, status
+    deptId, deptName
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guigu.jst.pojo.AccountExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guigu.pojo.DeptExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from account
+    from dept
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -92,85 +83,56 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from account
-    where id = #{id,jdbcType=INTEGER}
+    from dept
+    where deptId = #{deptid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from account
-    where id = #{id,jdbcType=INTEGER}
+    delete from dept
+    where deptId = #{deptid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.guigu.jst.pojo.AccountExample" >
-    delete from account
+  <delete id="deleteByExample" parameterType="com.guigu.pojo.DeptExample" >
+    delete from dept
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.guigu.jst.pojo.Account" >
-    insert into account (id, cardno, password, 
-      balance, status)
-    values (#{id,jdbcType=INTEGER}, #{cardno,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{balance,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.guigu.pojo.Dept" >
+    insert into dept (deptId, deptName)
+    values (#{deptid,jdbcType=INTEGER}, #{deptname,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.guigu.jst.pojo.Account" >
-    insert into account
+  <insert id="insertSelective" parameterType="com.guigu.pojo.Dept" >
+    insert into dept
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
+      <if test="deptid != null" >
+        deptId,
       </if>
-      <if test="cardno != null" >
-        cardno,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-      <if test="balance != null" >
-        balance,
-      </if>
-      <if test="status != null" >
-        status,
+      <if test="deptname != null" >
+        deptName,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
+      <if test="deptid != null" >
+        #{deptid,jdbcType=INTEGER},
       </if>
-      <if test="cardno != null" >
-        #{cardno,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="balance != null" >
-        #{balance,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=VARCHAR},
+      <if test="deptname != null" >
+        #{deptname,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.guigu.jst.pojo.AccountExample" resultType="java.lang.Integer" >
-    select count(*) from account
+  <select id="countByExample" parameterType="com.guigu.pojo.DeptExample" resultType="java.lang.Integer" >
+    select count(*) from dept
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update account
+    update dept
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
+      <if test="record.deptid != null" >
+        deptId = #{record.deptid,jdbcType=INTEGER},
       </if>
-      <if test="record.cardno != null" >
-        cardno = #{record.cardno,jdbcType=VARCHAR},
-      </if>
-      <if test="record.password != null" >
-        password = #{record.password,jdbcType=VARCHAR},
-      </if>
-      <if test="record.balance != null" >
-        balance = #{record.balance,jdbcType=VARCHAR},
-      </if>
-      <if test="record.status != null" >
-        status = #{record.status,jdbcType=VARCHAR},
+      <if test="record.deptname != null" >
+        deptName = #{record.deptname,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -178,40 +140,25 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update account
-    set id = #{record.id,jdbcType=INTEGER},
-      cardno = #{record.cardno,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
-      balance = #{record.balance,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=VARCHAR}
+    update dept
+    set deptId = #{record.deptid,jdbcType=INTEGER},
+      deptName = #{record.deptname,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.guigu.jst.pojo.Account" >
-    update account
+  <update id="updateByPrimaryKeySelective" parameterType="com.guigu.pojo.Dept" >
+    update dept
     <set >
-      <if test="cardno != null" >
-        cardno = #{cardno,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="balance != null" >
-        balance = #{balance,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=VARCHAR},
+      <if test="deptname != null" >
+        deptName = #{deptname,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where deptId = #{deptid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.guigu.jst.pojo.Account" >
-    update account
-    set cardno = #{cardno,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      balance = #{balance,jdbcType=VARCHAR},
-      status = #{status,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.guigu.pojo.Dept" >
+    update dept
+    set deptName = #{deptname,jdbcType=VARCHAR}
+    where deptId = #{deptid,jdbcType=INTEGER}
   </update>
 </mapper>
