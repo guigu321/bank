@@ -8,8 +8,8 @@
 </head>
 <body>
 <div align="center">
-	<h1>您的账户余额是：</h1>
-		<h5>人民币:</h5>&nbsp &nbsp &nbsp  ${user } 元  
+	<h1>您的账户余额是:</h1>
+		<h5>人民币:</h5>  ${user } 元  
 		 </div>
 </body>
 </html>

@@ -12,9 +12,9 @@
 	卡号：${username } <a href="login.jsp">退出登录</a><br><br><br>
 	
 	<a target="tt" href="balance.jsp">查询余额</a><br>
-	<a target="tt" href="main.jsp">转账</a><br>
-	<a target="tt" href="Transfer.jsp">查询交易记录</a><br>
-	<a target="tt" href="Transfer.jsp">修改密码</a>
+	<a target="tt" href="Transfer.jsp">转账</a><br>
+	<a target="tt" href="main.jsp">查询交易记录</a><br>
+	<a target="tt" href="amend.jsp">修改密码</a>
 	
 	<div style="right: 10" align="center">
 	<iframe name="tt" src="main.jsp" frameBorder="1" width="80%" scrolling="yes" height="800px">
