@@ -103,6 +103,20 @@ public class Emp {
 		this.deptid = deptid;
 		this.dept = dept;
 	}
+	
+
+	public Emp(Integer id, String empname, String gender, String birthday, String phone, String address, String duty,
+			Integer deptid) {
+		super();
+		this.id = id;
+		this.empname = empname;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.phone = phone;
+		this.address = address;
+		this.duty = duty;
+		this.deptid = deptid;
+	}
 
 	public Dept getDept() {
 		return dept;
