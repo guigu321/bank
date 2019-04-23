@@ -80,4 +80,23 @@ public class Emp {
     public void setDeptid(Integer deptid) {
         this.deptid = deptid;
     }
+
+	public Emp() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Emp(Integer id, String empname, String gender, String birthday, String phone, String address, String duty,
+			Integer deptid) {
+		super();
+		this.id = id;
+		this.empname = empname;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.phone = phone;
+		this.address = address;
+		this.duty = duty;
+		this.deptid = deptid;
+	}
+    
 }

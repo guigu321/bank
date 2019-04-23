@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.guigu.dao.EmpMapper" >
-  <resultMap id="BaseResultMap" type="com.guigu.pojo.Emp" >
+  <resultMap id="emps" type="com.guigu.pojo.Emp" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="empName" property="empname" jdbcType="VARCHAR" />
     <result column="gender" property="gender" jdbcType="VARCHAR" />
@@ -10,7 +10,18 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="duty" property="duty" jdbcType="VARCHAR" />
     <result column="deptId" property="deptid" jdbcType="INTEGER" />
+    <association property="dept" javaType="Dept">
+    	<id column="deptId" property="deptid"/>
+  		<result column="deptName" property="deptname"/>
+    </association>
   </resultMap>
+  
+  <select id="findAllEmp" resultMap="emps">
+  	select * from emp e,dept d where e.deptid=d.deptid
+  </select>
+  
+  
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
