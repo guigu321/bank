@@ -1,11 +1,13 @@
 package com.guigu.dao;
 
+
+
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 import com.guigu.pojo.Dept;
 import com.guigu.pojo.DeptExample;
-import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+
 @Mapper
 public interface DeptMapper {
     int countByExample(DeptExample example);
