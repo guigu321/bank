@@ -3,8 +3,10 @@ package com.guigu.dao;
 import com.guigu.pojo.Classinfo;
 import com.guigu.pojo.ClassinfoExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface ClassinfoMapper {
     int countByExample(ClassinfoExample example);
 
