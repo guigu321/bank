@@ -3,6 +3,8 @@ package com.guigu.dao;
 import com.guigu.pojo.Account;
 import com.guigu.pojo.AccountExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 public interface AccountMapper {
