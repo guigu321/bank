@@ -36,7 +36,7 @@ public class EmpControlle {
 		int insert = ser.insert(e);
 		if(insert>0){
 			//return "main.html";
-			request.getRequestDispatcher("addEmp.html").forward(request, response);
+			request.getRequestDispatcher("main.html").forward(request, response);
 		}else{
 			//return "addEmp.html";
 			request.getRequestDispatcher("addEmp.html").forward(request, response);
