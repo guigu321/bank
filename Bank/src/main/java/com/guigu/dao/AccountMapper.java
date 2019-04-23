@@ -9,6 +9,9 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface AccountMapper {
+	
+	List<Account> Aid(String id);
+	
     int countByExample(AccountExample example);
 
     int deleteByExample(AccountExample example);

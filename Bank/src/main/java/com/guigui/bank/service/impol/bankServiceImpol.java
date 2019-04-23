@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.guigu.dao.AccountMapper;
 import com.guigu.dao.TransactionRecordMapper;
+import com.guigu.pojo.Account;
 import com.guigu.pojo.TransactionRecord;
 import com.guigu.pojo.TransactionRecordExample;
 import com.guigui.bank.service.bankService;
@@ -21,6 +22,11 @@ public class bankServiceImpol implements bankService {
 	private TransactionRecordMapper trDao;
 	public void setTrDao(TransactionRecordMapper trDao) {
 		this.trDao = trDao;
+	}
+	@Override
+	public List<Account> Aid(String id) {
+		
+		return accountDao.Aid(id);
 	}
 
 }

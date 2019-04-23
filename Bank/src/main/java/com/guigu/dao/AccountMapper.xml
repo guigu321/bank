@@ -37,6 +37,10 @@
       </foreach>
     </where>
   </sql>
+  
+  	<select id="Aid"  parameterType="com.guigu.jst.pojo.AccountExample">
+  			select * form account where id=#{id}
+  	</select>
   <sql id="Update_By_Example_Where_Clause" >
     <where >
       <foreach collection="example.oredCriteria" item="criteria" separator="or" >
@@ -66,6 +70,8 @@
       </foreach>
     </where>
   </sql>
+ 
+  
   <sql id="Base_Column_List" >
     id, cardno, password, balance, status
   </sql>
