@@ -3,8 +3,11 @@ package com.guigu.dao;
 import com.guigu.pojo.TransactionRecord;
 import com.guigu.pojo.TransactionRecordExample;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface TransactionRecordMapper {
     int countByExample(TransactionRecordExample example);
 
