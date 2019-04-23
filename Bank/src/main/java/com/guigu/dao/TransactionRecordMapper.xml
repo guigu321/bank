@@ -86,6 +86,10 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectTransaction" resultMap="BaseResultMap" parameterType="com.guigu.pojo.TransactionDate">
+   select from transaction_record where `transaction_date` 
+   where DATE_FORMAT(date,'%Y%m%d') BETWEEN #{date1} and #{date2}
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
