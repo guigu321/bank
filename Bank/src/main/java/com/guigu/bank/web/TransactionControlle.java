@@ -20,7 +20,6 @@ public class TransactionControlle {
 	public List<TransactionRecord> findsTransaction(){
 		TransactionRecordExample example=new TransactionRecordExample();
 		List<TransactionRecord> selectByExample = ser.selectByExample(example);
-		
 		return selectByExample;
 	}
 }

@@ -1,5 +1,6 @@
 package com.guigu.dao;
 
+import com.guigu.pojo.TransactionDate;
 import com.guigu.pojo.TransactionRecord;
 import com.guigu.pojo.TransactionRecordExample;
 import java.util.List;
@@ -9,6 +10,8 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface TransactionRecordMapper {
+	List<TransactionRecord> selectTransaction(TransactionDate date);
+	
     int countByExample(TransactionRecordExample example);
 
     int deleteByExample(TransactionRecordExample example);

@@ -9,8 +9,8 @@
 <body>
 	<div>
 		<h4>当前操作：转账。 请输入账号和金额点“转账”按钮</h4>
-			转入账号：<input>
-			转账金额：<input>
+			转入账号：<input name="time1">
+			转账金额：<input name="time1">
 			<button>转账</button>
 	</div>
 </body>
