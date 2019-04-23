@@ -10,7 +10,18 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="duty" property="duty" jdbcType="VARCHAR" />
     <result column="deptId" property="deptid" jdbcType="INTEGER" />
+    <association property="dept" javaType="com.guigu.pojo.Dept">
+    	<id column="deptId" property="deptid"/>
+  		<result column="deptName" property="deptname"/>
+    </association>
   </resultMap>
+  
+  <select id="findAllEmp" resultMap="BaseResultMap">
+  	select * from emp e,dept d where e.deptid=d.deptid
+  </select>
+  
+  
+  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

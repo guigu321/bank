@@ -20,4 +20,16 @@ public class Dept {
     public void setDeptname(String deptname) {
         this.deptname = deptname == null ? null : deptname.trim();
     }
+
+	public Dept(Integer deptid, String deptname) {
+		super();
+		this.deptid = deptid;
+		this.deptname = deptname;
+	}
+
+	public Dept() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+    
 }

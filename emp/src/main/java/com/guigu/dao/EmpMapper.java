@@ -10,6 +10,8 @@ import com.guigu.pojo.EmpExample;
 import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface EmpMapper {
+	List<Emp> findAllEmp();
+	
     int countByExample(EmpExample example);
 
     int deleteByExample(EmpExample example);
