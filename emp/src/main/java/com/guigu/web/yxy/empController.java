@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.guigu.Service.yxy.empService;
+import com.guigu.pojo.Dept;
 import com.guigu.pojo.Emp;
 
 @RestController
@@ -31,6 +32,10 @@ public class empController {
 		map.put("rows", list);
 		map.put("total", info.getLastPage());
 		return map;
-		
+	}
+	
+	@RequestMapping("findAllDept")
+	public List<Dept> findAllDept(){
+		return service.selectByExample(null);
 	}
 }

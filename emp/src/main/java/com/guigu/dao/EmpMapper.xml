@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.guigu.dao.EmpMapper" >
-  <resultMap id="BaseResultMap" type="com.guigu.pojo.Emp" >
+  <resultMap id="BaseResultMap" type="com.guigu.Emp" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="empName" property="empname" jdbcType="VARCHAR" />
     <result column="gender" property="gender" jdbcType="VARCHAR" />
@@ -10,18 +10,7 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="duty" property="duty" jdbcType="VARCHAR" />
     <result column="deptId" property="deptid" jdbcType="INTEGER" />
-    <association property="dept" javaType="com.guigu.pojo.Dept">
-    	<id column="deptId" property="deptid"/>
-  		<result column="deptName" property="deptname"/>
-    </association>
   </resultMap>
-  
-  <select id="findAllEmp" resultMap="BaseResultMap">
-  	select * from emp e,dept d where e.deptid=d.deptid
-  </select>
-  
-  
-  
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -83,7 +72,7 @@
   <sql id="Base_Column_List" >
     id, empName, gender, birthday, phone, address, duty, deptId
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guigu.pojo.EmpExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.guigu.EmpExample" >
     select
     <if test="distinct" >
       distinct
@@ -107,13 +96,13 @@
     delete from emp
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.guigu.pojo.EmpExample" >
+  <delete id="deleteByExample" parameterType="com.guigu.EmpExample" >
     delete from emp
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.guigu.pojo.Emp" >
+  <insert id="insert" parameterType="com.guigu.Emp" >
     insert into emp (id, empName, gender, 
       birthday, phone, address, 
       duty, deptId)
@@ -121,7 +110,7 @@
       #{birthday,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{duty,jdbcType=VARCHAR}, #{deptid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.guigu.pojo.Emp" >
+  <insert id="insertSelective" parameterType="com.guigu.Emp" >
     insert into emp
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -176,7 +165,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.guigu.pojo.EmpExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.guigu.EmpExample" resultType="java.lang.Integer" >
     select count(*) from emp
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -228,7 +217,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.guigu.pojo.Emp" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.guigu.Emp" >
     update emp
     <set >
       <if test="empname != null" >
@@ -255,7 +244,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.guigu.pojo.Emp" >
+  <update id="updateByPrimaryKey" parameterType="com.guigu.Emp" >
     update emp
     set empName = #{empname,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=VARCHAR},

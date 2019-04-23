@@ -16,6 +16,8 @@ public class Emp {
     private String duty;
 
     private Integer deptid;
+    
+    private Dept dept;
 
     public Integer getId() {
         return id;
@@ -86,8 +88,10 @@ public class Emp {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public Emp(Integer id, String empname, String gender, String birthday, String phone, String address, String duty,
-			Integer deptid) {
+			Integer deptid, Dept dept) {
 		super();
 		this.id = id;
 		this.empname = empname;
@@ -97,6 +101,15 @@ public class Emp {
 		this.address = address;
 		this.duty = duty;
 		this.deptid = deptid;
+		this.dept = dept;
+	}
+
+	public Dept getDept() {
+		return dept;
+	}
+
+	public void setDept(Dept dept) {
+		this.dept = dept;
 	}
     
 }
