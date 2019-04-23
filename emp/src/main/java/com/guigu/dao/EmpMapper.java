@@ -1,12 +1,14 @@
 package com.guigu.dao;
 
-
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.guigu.pojo.Emp;
 import com.guigu.pojo.EmpExample;
 
+
+import org.apache.ibatis.annotations.Mapper;
+@Mapper
 public interface EmpMapper {
     int countByExample(EmpExample example);
 
